@@ -98,9 +98,7 @@ function userName(uint256 _participantId)public view returns(string memory){
 function viewVaccine(uint256 _vaccine_id) public view returns(vaccine memory){
     return vaccines[_vaccine_id];
 }
-// function geoLocation(uint256 _vaccine_id) public view returns(uint256){
-//     return participantId;
-// }
+
   function geoLocation(uint8 _status) public {
         //Functions to register the GeoLocation of vaccine in transit
         if (_status == 0) {
@@ -139,46 +137,4 @@ function currentDefaultVaccineStatus() public view returns(Status) {
         return DefaultVaccineStatus;
     }
 
-
-
-// string public currentOwner;
-// event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
-// function Currentowner() public view virtual returns (address) {
-//         return owner;
-//     }
-// function _transferOwnership(address newOwner) public {
-//         address oldOwner = owner;
-//         owner = newOwner;
-//         emit OwnershipTransferred(oldOwner, newOwner);
-//     }
-
-// function administerOfvaccine(uint256 _status) public returns(string memory){
-//     if (_status==0) {
-//     DefaultVaccineStatus=Status.PACKAGED;
-//     currentOwner=="Manufacturer";
-//     }
-//     else if (_status==1){
-//         DefaultVaccineStatus=Status.APPROVED;
-//         currentOwner="Supplier";
-//     }else if (_status==2){
-//         DefaultVaccineStatus=Status.DISPATCHED;
-//         currentOwner="Logistics";
-//     }else if (_status==3){
-//         DefaultVaccineStatus=Status.INTRANSIT;
-//         currentOwner="Distributor";
-//     }else if (_status==4){
-//         DefaultVaccineStatus=Status.FITFORUSE;
-//         currentOwner="Hospital";
-//     }else if (_status==5){
-//         DefaultVaccineStatus=Status.UNFIT;
-//         currentOwner="Hospital";
-//     }
-//     return currentOwner;
-
-// }
-
-
-// function currentDefaultVaccineStatus(uint256 _vaccine_id) public view returns(){
-
-// }
 }

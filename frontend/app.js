@@ -42,6 +42,7 @@ App={
         $(document).on("click", ".btn_ParticipantView", App.handleViewParticipant);
         $(document).on("click", ".btn_view_vaccine", App.handleViewVaccine);
         $(document).on("click", ".btn_location", App.handleLocation);
+        $(document).on("click", ".btn_Status", App.handleStatus);
     },
     handleAddparticipant:function(){
         console.log("handling participant registration");
@@ -79,27 +80,17 @@ App={
         console.log("handling view vaccine");
         var _vaccine_id=$("#_vaccine_id").val();
         console.log(_vaccine_id);
-        App.contract.viewVaccine(_vaccine_id).then((data1)=>{
-            console.log(data1);
+        App.contract.viewVaccine(_vaccine_id).then((vaccineView)=>{
+            console.log(vaccineView);
 
             var vaccineData= document.getElementById("vaccineData");
 
-            vaccineData.innerHTML=` <strong>Vaccine Name</strong>: <span class="vaccineName">`+data1[0]+`</span><br />
-            <strong>Serial Number</strong>: <span class="serialNumber">`+data1[1]+`</span><br />
-            <strong>Cost </strong>: <span class="cost">`+data1[2]+`</span><br />
-            <strong>Date of Manufacturing </strong>: <span class="mfgTimeStamp">`+data1[3]+`</span><br />
-            <strong>Status of Vaccine </strong>: <span class="DefaultVaccineStatus">`+data1[4]+`</span><br />`
-            // return data1;
-        // var viewVaccineDiv= $("#viewVaccine");
-        // var viewVaccineTemplate= $("#viewVaccineTemplate");
-        // for (i=0; i<data1.length; i++){
-        //     viewVaccineTemplate.find(".vaccineName").text(data1[i].vaccineName);
-        //     viewVaccineTemplate.find(".serialNumber").text(data1[i].serialNumber);
-        //     viewVaccineTemplate.find(".cost").text(data1[i].cost);
-        //     viewVaccineTemplate.find(".mfgTimeStamp").text(data1[i].mfgTimeStamp);
+            vaccineData.innerHTML=` <strong>Vaccine Name</strong>: <span class="vaccineName">`+vaccineView[0]+`</span><br />
+            <strong>Serial Number</strong>: <span class="serialNumber">`+vaccineView[1]+`</span><br />
+            <strong>Cost </strong>: <span class="cost">`+vaccineView[2]+`</span><br />
+            <strong>Date of Manufacturing </strong>: <span class="mfgTimeStamp">`+vaccineView[3]+`</span><br />
+            <strong>Status of Vaccine </strong>: <span class="DefaultVaccineStatus">`+vaccineView[4]+`</span><br />`
 
-        // }
-        // viewVaccineDiv.append(viewVaccineTemplate.html());
 
         });
     },
@@ -138,6 +129,28 @@ App={
             location.innerHTML=`<strong>Vaccine Status</strong>: <span class="status">`+defaultStatus+`</span><br />
             <strong>Vaccine location</strong>: <span class="location">`+defaultLocation+`</span><br />
             `
+        })
+    },
+    handleStatus:function(){
+        console.log("handling Status");
+        App.contract.currentDefaultVaccineStatus().then((StatusData)=>{
+            console.log(StatusData);
+            var CurrentStatus;
+            if (StatusData[0]==0){
+                CurrentStatus="Packed";
+            } else if (StatusData[0]==1){
+                CurrentStatus="Approved";
+            }else if (StatusData[0]==2){
+                CurrentStatus="Dispatched";
+            }else if (StatusData[0]==3){
+                CurrentStatus="Intransit";
+            }else if (StatusData[0]==4){
+                CurrentStatus="Fit";
+            }else if (StatusData[0]==5){
+                CurrentStatus="Unfit";
+            }
+            var statusVaccine=document.getElementById("statusVaccine");
+            statusVaccine.innerHTML=`<strong>Vaccine Status</strong>: <span class="status">`+CurrentStatus+`</span><br />`
         })
     }
 }
