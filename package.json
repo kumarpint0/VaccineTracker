@@ -1,0 +1,18 @@
+{
+  "name": "vaccinetrackerpoc",
+  "version": "1.0.0",
+  "description": "a Dapp to track the record of the vaccine from manufacture to hospital",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kumarpint00",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^1.0.2",
+    "hardhat": "^2.10.2"
+  },
+  "dependencies": {
+    "@nomiclabs/hardhat-waffle": "^2.0.3"
+  }
+}

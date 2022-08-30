@@ -1,0 +1,141 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaccine Tracker</title>
+    <link rel="icon" href="../frontend/img/vaccine.png">
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+    <h1>Vaccine tracker Dapp </h1>
+    <div id="wallet"></div>
+    <div><h2>Register new Entity/Participant</h2></div>
+    <div>
+        <input type="text" id="userName" placeholder="Add your user name...">
+        <input type="text" name="accountAddress" id="participantAddress" placeholder="paste your account address">
+        <input type="text" name="participanttype" id="participantType" placeholder="nature of participation">
+        <button type="button" class="btn_entity_add">Register</button>
+    </div>
+
+
+    <div><h2>Register new Vaccine</h2></div>
+    <div>
+        <input type="text" name="vaccineName" id="vaccineName" placeholder="Add your vaccineName...">
+        <input type="number" name="serialNumber" id="serialNumber" placeholder="Add serialNumber...">
+        <input type="number" name="cost" id="cost" placeholder="cost">
+        <input type="date" name="mfgTimeStamp" id="mfgTimeStamp" placeholder="Manufacturing date">
+        <button type="button" class="btn_add_vaccine">Add Vaccine</button>
+    </div>
+
+    <div><h2>View participant</h2></div>
+    <div>
+        <h3>Enter the participant ID</h3>
+        <input type="text" name="participantId" id="_participantId" placeholder="Enter participant's ID here">
+        <button type="button" onclick="btn_ParticipantView()" class="btn_ParticipantView"> submit</button>
+    </div>
+
+
+    <h2>Participant</h2>
+        <div id="viewParticipant">
+            <!-- Participant's details here -->
+        </div>
+        <div id="viewParticipantTemplate">
+            <div class="card">
+                <div id="myData" class="container">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div><h2>View Vaccine</h2></div>
+
+    <div> <h3> Enter the Vaccine ID</h3>
+        <input type="text" name="VaccineId" id="_vaccine_id" placeholder="Enter the vaccine ID">
+        <button type="button" class="btn_view_vaccine"> submit</button>
+   
+    </div>
+    <h2>Vaccine available</h2>
+    <div id="viewVaccine">
+        <!-- Vaccine details here -->
+    </div>
+    <div id="viewVaccineTemplate">
+        <div class="card">
+            <div id="vaccineData" class="container">
+                <!-- <strong>Vaccine Name</strong>: <span class="vaccineName"></span><br />
+                <strong>Serial Number</strong>: <span class="serialNumber"></span><br />
+                <strong>Cost </strong>: <span class="cost"></span><br />
+                <strong>Date of Manufacturing </strong>: <span class="mfgTimeStamp"></span><br /> -->
+
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- <div><h2>View Geolocation of vaccine</h2></div>
+    <div>
+        <h3>Enter the vaccine  ID</h3>
+        <input type="text" name="participantId" id="_status1" placeholder="Enter VaccineId here">
+        <button type="button" class="btn_view"> submit</button>
+    </div> -->
+
+   
+
+    <h2>View Current status of vaccine</h2>
+    <div id="viewVaccineStatus">
+        <!-- Geo location here -->
+    </div>
+    <div id="viewVaccineStatusTemplate">
+        <div class="card">
+            <div id="statusVaccine" class="container">
+                <button type="button" class="btn_Status">Status</button><br />
+    
+                <strong>Vaccine Status</strong>: <span class="status"></span><br />
+                <strong>Vaccine location</strong>: <span class="location"></span><br />
+                
+                
+    
+            </div>
+        </div>
+    </div>
+    </div>
+    
+
+
+
+
+
+  
+
+<h2>Geo location of the vaccine</h2>
+<div id="viewVaccine">
+    <!-- Geo location here -->
+</div>
+<div id="viewVaccineTemplate">
+    <div class="card">
+        <div id="locationData" class="container">   
+            <button type="button" class="btn_location">Location</button><br />
+
+            <strong>Vaccine Status</strong>: <span class="vaccineName"></span><br />
+            <strong>Vaccine location</strong>: <span class="serialNumber"></span><br />
+            
+            
+
+        </div>
+    </div>
+</div>
+</div>
+
+
+        <!--
+        jQuery
+      -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript">
+      </script>
+      <script src="app.js"></script>
+</body>
+</html>
